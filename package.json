@@ -9,6 +9,15 @@
     "lint": "eslint --ext .ts,.tsx --fix",
     "format": "prettier './**/*.{js,json,css}' --write --loglevel silent"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.+(ts|tsx)": "npm run lint",
+    "./**/*.+(js|json|css)": "npm run format"
+  },
   "dependencies": {
     "@types/node": "^14.14.17",
     "@types/react": "^17.0.0",
@@ -23,6 +32,8 @@
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.2.1"
   }
 }
